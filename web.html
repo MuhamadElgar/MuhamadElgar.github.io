@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Works | Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+
+    <script>
+        if (localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        }
+    </script>
+
+    <style>
+        .page {
+            animation: fadeUp 1s ease forwards;
+        }
+        @keyframes fadeUp {
+            from {opacity:0; transform:translateY(30px);}
+            to {opacity:1; transform:translateY(0);}
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .5s ease;
+        }
+        .mobile-menu.active {
+            max-height: 260px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-black dark:bg-black dark:text-gray-100 antialiased page">
+
+<!-- NAVBAR (SAMA PERSIS) -->
+<nav class="fixed w-full z-50 px-6 md:px-24 py-5 flex justify-between items-center backdrop-blur bg-white/80 dark:bg-black/70">
+    <a href="index.html" class="flex items-center">
+        <img src="assets/logo/Putih.png" class="h-10 block dark:hidden">
+        <img src="assets/logo/hitam.png" class="h-10 hidden dark:block">
+    </a>
+
+    <div class="hidden md:flex gap-12 text-sm font-medium tracking-wide">
+        <a href="index.html#photo" class="hover:text-gray-500">Photography</a>
+        <a href="index.html#work" class="hover:text-gray-500">Work</a>
+        <a href="video.html" class="hover:text-gray-500">Video</a>
+        <a href="web.html" class="text-black dark:text-white">Web</a>
+        <a href="index.html#contact" class="hover:text-gray-500">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-6">
+        <button id="themeToggle" class="text-xl w-10 h-10 flex justify-center items-center rounded-full hover:bg-gray-200 dark:hover:bg-white/10">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+
+        <button id="menuBtn" class="md:hidden text-xl w-10 h-10 flex justify-center items-center rounded-full hover:bg-gray-200 dark:hover:bg-white/10">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu fixed top-[72px] left-0 w-full bg-white dark:bg-black border-t dark:border-white/10 z-40">
+    <div class="flex flex-col px-6 py-6 gap-5 text-base font-medium text-center">
+        <a href="index.html#photo">Photography</a>
+        <a href="index.html#work">Work</a>
+        <a href="video.html">Video</a>
+        <a href="web.html">Web</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+</div>
+
+<div class="h-32"></div>
+
+<!-- CONTENT WEB PROJECT -->
+<section class="max-w-7xl mx-auto px-6 pb-32">
+
+    <div class="text-center mb-20">
+        <h1 class="text-3xl md:text-5xl font-semibold mb-4">
+            Web Projects
+        </h1>
+        <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
+            Collection of websites, dashboards, and web applications built
+            with modern technologies and clean design principles.
+        </p>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div class="flex justify-center">
+        <div class="w-full max-w-xl text-center p-12 rounded-2xl
+                    border border-dashed border-gray-300 dark:border-gray-700
+                    bg-white/60 dark:bg-gray-900/40
+                    backdrop-blur-sm shadow-sm">
+
+            <div class="flex justify-center mb-6">
+                <div class="w-16 h-16 flex items-center justify-center rounded-full
+                            bg-gray-100 dark:bg-gray-800 text-2xl">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+            </div>
+
+            <h2 class="text-lg font-medium mb-2">
+                Belum ada project yang terupload di sini
+            </h2>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                Web project akan ditampilkan di halaman ini.
+                Saat ini masih dalam tahap pengembangan dan kurasi konten.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+<footer class="px-6 md:px-24 py-10 bg-black text-gray-400 text-center">
+    © 2025 Muhamad Elgar
+</footer>
+
+<script>
+// DARK MODE
+const toggle = document.getElementById("themeToggle");
+const html = document.documentElement;
+if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    html.classList.add("dark");
+}
+toggle.onclick = () => html.classList.toggle("dark");
+
+// MOBILE MENU
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+menuBtn.onclick = () => menu.classList.toggle("active");
+menu.querySelectorAll("a").forEach(a =>
+    a.onclick = () => menu.classList.remove("active")
+);
+</script>
+
+</body>
+</html>

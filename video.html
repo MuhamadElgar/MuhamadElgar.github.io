@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Works | Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+
+    <script>
+        if (localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        }
+    </script>
+
+    <style>
+        .page {
+            animation: fadeUp 1s ease forwards;
+        }
+        @keyframes fadeUp {
+            from {opacity:0; transform:translateY(30px);}
+            to {opacity:1; transform:translateY(0);}
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .5s ease;
+        }
+        .mobile-menu.active {
+            max-height: 260px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-black dark:bg-black dark:text-gray-100 antialiased page">
+
+<nav class="fixed w-full z-50 px-6 md:px-24 py-5 flex justify-between items-center backdrop-blur bg-white/80 dark:bg-black/70">
+    <a href="index.html" class="flex items-center">
+        <img src="assets/logo/Putih.png" class="h-10 block dark:hidden">
+        <img src="assets/logo/hitam.png" class="h-10 hidden dark:block">
+    </a>
+
+    <div class="hidden md:flex gap-12 text-sm font-medium tracking-wide">
+        <a href="index.html#photo" class="hover:text-gray-500">Photography</a>
+        <a href="index.html#work" class="hover:text-gray-500">Work</a>
+        <a href="video.html" class="text-black dark:text-white">Video</a>
+        <a href="index.html#contact" class="hover:text-gray-500">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-6">
+        <button id="themeToggle" class="text-xl w-10 h-10 flex justify-center items-center rounded-full hover:bg-gray-200 dark:hover:bg-white/10">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+
+        <button id="menuBtn" class="md:hidden text-xl w-10 h-10 flex justify-center items-center rounded-full hover:bg-gray-200 dark:hover:bg-white/10">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<div id="mobileMenu" class="mobile-menu fixed top-[72px] left-0 w-full bg-white dark:bg-black border-t dark:border-white/10 z-40">
+    <div class="flex flex-col px-6 py-6 gap-5 text-base font-medium text-center">
+        <a href="index.html#photo">Photography</a>
+        <a href="index.html#work">Work</a>
+        <a href="video.html">Video</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+</div>
+
+<div class="h-32"></div>
+
+<section class="max-w-7xl mx-auto px-6 pb-24">
+
+    <div class="mb-24 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+            <h1 class="text-3xl md:text-5xl font-semibold mb-4">
+                Video & Motion
+            </h1>
+
+            <p class="text-gray-500 dark:text-gray-400 max-w-lg text-sm leading-relaxed mb-4">
+                Selected cinematic videos, motion graphics, and visual shorts
+                crafted with storytelling and photography principles.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-4 mt-4">
+                <a href="https://www.youtube.com/@CubesinemaProject" target="_blank"
+                    class="flex items-center gap-4 px-5 py-4 rounded-xl
+                        bg-white dark:bg-gray-900 border dark:border-gray-800
+                        hover:shadow-lg transition">
+                    <i class="fa-brands fa-youtube text-2xl text-black dark:text-white"></i>
+                    <div>
+                        <p class="font-medium text-sm">Cubesinema Project</p>
+                        <span class="text-xs text-gray-500">Cinematic & Editing</span>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/@ItsHakotaro" target="_blank"
+                    class="flex items-center gap-4 px-5 py-4 rounded-xl
+                        bg-white dark:bg-gray-900 border dark:border-gray-800
+                        hover:shadow-lg transition">
+                    <i class="fa-brands fa-youtube text-2xl text-black dark:text-white"></i>
+                    <div>
+                        <p class="font-medium text-sm">ItsHakotaro</p>
+                        <span class="text-xs text-gray-500">Streaming & Animation</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="relative">
+            <div class="aspect-video rounded-xl overflow-hidden
+                        shadow-lg border border-gray-200 dark:border-gray-800">
+                <iframe
+                    id="heroVideo"
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/ZPN-dTPCNbw?mute=1&controls=0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="absolute inset-0 rounded-xl pointer-events-none
+                        bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+        </div>
+    </div>
+
+
+    <div class="mt-12">
+        <h2 class="text-xl md:text-2xl font-semibold mb-8">Cinematic & Video Editing</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+            <div class="group cursor-pointer">
+                <div class="relative aspect-[16/9] rounded-xl overflow-hidden
+                            transform transition-transform duration-300 group-hover:scale-[1.02]
+                            shadow-xl border-2 border-transparent group-hover:border-white/20 dark:group-hover:border-gray-700">
+                    <iframe class="w-full h-full"
+                        src="https://www.youtube.com/embed/Bk1RNGqNZZM"
+                        allowfullscreen></iframe>
+                </div>
+                <p class="mt-3 text-base font-medium transition-colors duration-300 group-hover:text-gray-500 dark:group-hover:text-gray-400">
+                    Cinematic Visual Project
+                </p>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Short Film/Montage</span>
+            </div>
+
+            <div class="group cursor-pointer">
+                <div class="relative aspect-[16/9] rounded-xl overflow-hidden
+                            transform transition-transform duration-300 group-hover:scale-[1.02]
+                            shadow-xl border-2 border-transparent group-hover:border-white/20 dark:group-hover:border-gray-700">
+                    <iframe class="w-full h-full"
+                        src="https://www.youtube.com/embed/ZPN-dTPCNbw"
+                        allowfullscreen></iframe>
+                </div>
+                <p class="mt-3 text-base font-medium transition-colors duration-300 group-hover:text-gray-500 dark:group-hover:text-gray-400">
+                    Creative Video Editing
+                </p>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Travel/Vlog</span>
+            </div>
+            
+
+        </div>
+    </div>
+
+
+</section>
+
+<footer class="px-6 md:px-24 py-10 bg-black text-gray-400 text-center">
+    © 2025 Muhamad Elgar
+</footer>
+
+<script>
+// DARK MODE
+const toggle = document.getElementById("themeToggle");
+const html = document.documentElement;
+if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    html.classList.add("dark");
+}
+toggle.onclick = () => html.classList.toggle("dark");
+
+// MOBILE MENU
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+menuBtn.onclick = () => menu.classList.toggle("active");
+menu.querySelectorAll("a").forEach(a =>
+    a.onclick = () => menu.classList.remove("active")
+);
+
+
+let played = false;
+window.addEventListener('scroll', () => {
+    if (!played) {
+        const iframe = document.getElementById('heroVideo');
+        // Memastikan iframe memiliki src sebelum menambahkan parameter
+        if (iframe.src.indexOf("&autoplay=1") === -1 && iframe.src.indexOf("?autoplay=1") === -1) {
+             iframe.src += "&autoplay=1";
+        }
+        played = true;
+    }
+});
+</script>
+
+</body>
+</html>
